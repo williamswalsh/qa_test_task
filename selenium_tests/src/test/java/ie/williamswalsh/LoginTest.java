@@ -27,8 +27,6 @@ public class LoginTest {
 
     private static WebDriverWait wait;
 
-
-
     @BeforeAll
     static void setUp() {
         System.setProperty("webdriver.chrome.driver", "/Users/legoman/code/selenium/drivers/chromedriver-mac-arm64/chromedriver");
@@ -47,7 +45,6 @@ public class LoginTest {
         assertEquals("Swag Labs", driver.getTitle());
     }
 
-
     @Test
     void logIn_CorrectCredentials() {
         driver.get(TARGET_URL);
@@ -55,8 +52,7 @@ public class LoginTest {
         driver.findElement(By.id("password")).sendKeys("secret_sauce");
         driver.findElement(By.id("login-button")).click();
 
-        // Assert that we logged in successfully
-
+        assertEquals("Products", driver.findElement(By.cssSelector("span.title")).getText());
     }
 
     @Test
