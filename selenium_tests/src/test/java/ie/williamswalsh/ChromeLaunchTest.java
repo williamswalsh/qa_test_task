@@ -56,7 +56,7 @@ public class ChromeLaunchTest {
         driver.findElement(By.id("password")).sendKeys("incorrect_password");
         driver.findElement(By.id("login-button")).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("error-message-container")));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector()));
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector()));
 
         // wait for error-message-container error to become visible
     }
@@ -80,11 +80,11 @@ public class ChromeLaunchTest {
 //        assertEquals(correctUrl, driver.getCurrentUrl());
 //    }
 
-    @AfterAll
-    static void tearDown() {
-        // Only closes the current window
-        driver.close();
-        // closes all associates windows/tabs
-        driver.quit();
-    }
+//    @AfterAll
+//    static void tearDown() {
+//        // Only closes the current window
+//        driver.close();
+//        // closes all associates windows/tabs
+//        driver.quit();
+//    }
 }
