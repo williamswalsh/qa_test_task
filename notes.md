@@ -1,23 +1,25 @@
-skills in:
-QA strategy and bug reports 
-strategy for your tests and a high-level overview of a new system or application 
-The way that you explore features and report bugs 
-Test Plan and Automated Test Decisions 
-The way that you structure your test plans 
-The way that you make your decisions on the tests 
+# Skills to demonstrate:
 
-Framework options 
-Why the framework is the best fit for this project 
-Test automation development and design patterns 
-If you can explain the core concepts from your framework and why it is important 
-Instructions and approach for project settings and test execution 
-The way that you create solutions that could be used for the whole team taking into account all the team members 
+QA strategy and bug reports
+strategy for your tests and a high-level overview of a new system or application
+The way that you explore features and report bugs
+Test Plan and Automated Test Decisions
+The way that you structure your test plans
+The way that you make your decisions on the tests
 
-Tasks:
-======
-Create repo on Github 
-Share it with us
+# Framework options
 
+Q: Why the framework is the best fit for this project?
+Q: Test automation development and design patterns
+Q: If you can explain the core concepts from your framework and why it is important
+Q: Instructions and approach for project settings and test execution
+Q: The way that you create solutions that could be used for the whole team taking into account all the team members
+
+# Tasks:
+
+Create repo on Github - DONE
+
+# Front end testing:
 
 Create a test strategy for this e-commerce application https://www.saucedemo.com/
 Some features that could be covered are:
@@ -28,17 +30,19 @@ We use Python as the programming language
 Create the automation project from scratch covering the most important scenarios
 Report bugs with severity and priorities
 Add the instructions to install and how to run the tests
-README.MD 
-EXERCISE-1.MD 
-TEST-STRATEGY 
-TEST-PLANS 
-DECISIONS AND REASONS 
-BUGREPORT-1.MD 
+README.MD
+EXERCISE-1.MD
+TEST-STRATEGY
+TEST-PLANS
+DECISIONS AND REASONS
+BUGREPORT-1.MD
 
-Optional: Add the tests in a Continuous Integration tool and Docker. ***NB*** likely to be in top of class if do this!
-      2. Write automated tests for a REST API service:
+**_NB_** Add the tests in a Continuous Integration tool and Docker.
+Likely to be in top of class if do this!
 
-Implement REST API automated tests for the https://petstore.swagger.io/
+# Backend testing:
+
+REST API automated tests - target: https://petstore.swagger.io/
 The idea of this exercise is to implement automated tests for an API
 creating data, modifying existing data, or deleting data.
 test cases for HTTP status codes, sending proper information, invalid information, incorrect format, and other possible edge cases;
@@ -48,11 +52,6 @@ Add the instructions to install and how to run the tests (you can use the same o
 README.MD
 EXERCISE-2.MD
 BUGREPORT-2.MD
-How to deliver it
 
-
-
-
-
-
-NB: Dont hesitate to contact me for any questions 
+Share it with us -
+NB: Dont hesitate to contact me for any questions
