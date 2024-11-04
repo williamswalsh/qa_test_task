@@ -16,11 +16,19 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ChromeLaunchTest {
 
+    private static final String TARGET_URL = "https://www.saucedemo.com/";
+    private static final String BAD_CREDENTIALS_ERROR = "Epic sadface: Username and password do not match any user in this service";
+    private static final String MISSING_USERNAME_ERROR = "Epic sadface: Username is required";
+    private static final String MISSING_PASSWORD_ERROR = "Epic sadface: Password is required";
+    private static final String LOCKED_USER_ERROR = "Epic sadface: Sorry, this user has been locked out.";
+
+
+
     private static WebDriver driver;
 
     private static WebDriverWait wait;
 
-    private static final String TARGET_URL = "https://www.saucedemo.com/";
+
 
     @BeforeAll
     static void setUp() {
@@ -47,6 +55,9 @@ public class ChromeLaunchTest {
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
         driver.findElement(By.id("password")).sendKeys("secret_sauce");
         driver.findElement(By.id("login-button")).click();
+
+        // Assert that we logged in successfully
+
     }
 
     @Test
@@ -55,11 +66,45 @@ public class ChromeLaunchTest {
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
         driver.findElement(By.id("password")).sendKeys("incorrect_password");
         driver.findElement(By.id("login-button")).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("error-message-container")));
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector()));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.error-message-container")));
 
-        // wait for error-message-container error to become visible
+        assertEquals(BAD_CREDENTIALS_ERROR, driver.findElement(By.cssSelector("div.error-message-container")).getText());
     }
+
+    @Test
+    void logIn_MissingUserName() {
+        driver.get(TARGET_URL);
+        driver.findElement(By.id("password")).sendKeys("incorrect_password");
+        driver.findElement(By.id("login-button")).click();
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.error-message-container")));
+
+        assertEquals(MISSING_USERNAME_ERROR, driver.findElement(By.cssSelector("div.error-message-container")).getText());
+    }
+
+    @Test
+    void logIn_MissingPassword() {
+        driver.get(TARGET_URL);
+        driver.findElement(By.id("user-name")).sendKeys("standard_user");
+        driver.findElement(By.id("login-button")).click();
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.error-message-container")));
+
+        assertEquals(MISSING_PASSWORD_ERROR, driver.findElement(By.cssSelector("div.error-message-container")).getText());
+    }
+
+    @Test
+    void logIn_LockedOutUser() {
+        driver.get(TARGET_URL);
+        driver.findElement(By.id("user-name")).sendKeys("standard_user");
+        driver.findElement(By.id("login-button")).click();
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.error-message-container")));
+
+        assertEquals(LOCKED_USER_ERROR, driver.findElement(By.cssSelector("div.error-message-container")).getText());
+    }
+
+
 
 
 //    Accepted usernames are:
@@ -80,11 +125,11 @@ public class ChromeLaunchTest {
 //        assertEquals(correctUrl, driver.getCurrentUrl());
 //    }
 
-//    @AfterAll
-//    static void tearDown() {
-//        // Only closes the current window
-//        driver.close();
-//        // closes all associates windows/tabs
-//        driver.quit();
-//    }
+    @AfterAll
+    static void tearDown() {
+        // Only closes the current window
+        driver.close();
+        // closes all associates windows/tabs
+        driver.quit();
+    }
 }
