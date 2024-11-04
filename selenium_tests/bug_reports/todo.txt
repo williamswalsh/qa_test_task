@@ -2,3 +2,9 @@
 // error_user ?? Images are all the same
 
 // Create parameterized test with username, password inputs and outputs for errors/behaviour.
+
+// Can access static files in same domain under links: https://www.saucedemo.com/static/js/main.018d2d1e.chunk.js
+// Site uses https - Good
+
+// noscript html element for clients not allowing JS - Good
+
