@@ -30,7 +30,7 @@ Upon entering invalid credentials and clicking the login button, the error shoul
 The page displays the incorrect statement: "Epic sadface..."
 
 **Attachments:**
-- Screenshot of the incorrect english ![img.png](img.png)
+- Screenshot of the incorrect english ![img.png](../src/main/resources/images/img.png)
 
 **Workaround (if any):**  
 None.
