@@ -22,7 +22,7 @@ Create a test strategy for this e-commerce application: https://www.saucedemo.co
 
 ### Features to cover: 
 - log in - partially done 
-- log out
+- log out - tested basic login-logout sequence
 - search for products
 - filtering
 - product listing page

@@ -8,3 +8,9 @@
 
 // noscript html element for clients not allowing JS - Good
 
+
+
+
+URL map:
+https://www.saucedemo.com/inventory.html
+https://www.saucedemo.com/inventory-item.html?id=5
